@@ -124,7 +124,7 @@ body {
 }
 
 .categories{
-    margin:50px 0;
+    margin:80px 0;
 }
 
 .categories h1{
@@ -148,6 +148,10 @@ body {
     width:70px;
     object-fit: contain;
     margin-bottom: 10px;
+}
+
+.products{
+    margin-top:80px;
 }
 
 .products h1{
@@ -204,6 +208,7 @@ body {
     transition: all 0.1s linear;
     border-radius: 20px;
     overflow: hidden;
+    margin-bottom: 30px;
 }
 
 .product-card:hover{
@@ -223,3 +228,38 @@ body {
     font-size:20px;
     margin-bottom: 10px;
 }
+
+.primary-btn{
+    border-radius: 30px;
+    border:2px solid #0071E3;
+    padding:8px 15px;
+    background: #0071E3;
+    color:white;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    font-size: 18px;
+}
+
+.primary-btn:hover{
+    background: transparent;
+}
+
+.features{
+    margin:50px 0;
+    padding:40px 0;
+    /* background: #0071E3; */
+}
+
+.features-card{
+    width:20%;
+}
+
+.features-card img{
+    max-width:80px;
+}
+
+.features-card h4{
+    font-weight: 600;
+    font-size: 18px;
+}
+
