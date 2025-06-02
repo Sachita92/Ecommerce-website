@@ -1,0 +1,95 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    /* padding: 40px 20px; */
+}
+
+h1 {
+    text-align: center;
+    color: #111;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+}
+
+.contact-info, .contact-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    flex: 1 1 350px;
+}
+
+.contact-form input {
+    margin-top:15px;
+}
+
+.contact-wrapper h2 {
+    margin-bottom: 20px;
+}
+
+.contact-info p, .store-hours p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #0d47a1;
+}
+
+.store-hours h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #0d47a1;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0b3c91;
+}
+
+button i {
+    margin-right: 8px;
+}
+p{
+    margin-left: 40px;
+}
