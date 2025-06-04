@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TechHaven Login</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
-  <header>
-    <div class="logo">🖥️ TechHaven</div>
-    <nav>
-      <a href="#">Products</a>
-      <a href="#">Deals</a>
-      <a href="#">Support</a>
-      <a href="#" class="active">Sign In</a>
-    </nav>
-  </header>
+  <div class="header">
+    <div class="container">
+      <div class="d-flex justify-between align-center">
+        <h1>Tech<span class="text-orange">Harbor</span></h1>
+        <ul class="d-flex justify-between nav gap">
+          <li>Home</li>
+          <li>Product</li>
+          <li>Categories</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+        <div class="d-flex align-center gap">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <i class="fa-solid fa-user"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <main>
     <div class="login-box">
       <h2>Welcome Back</h2>
-      <p>Sign in to your TechHaven account</p>
+      <p>Sign in to your TechHarbor account</p>
       <form>
         <label>Email Address</label>
         <input type="email" placeholder="your@email.com" required />
@@ -28,11 +42,11 @@
         <label>Password</label>
         <div class="password-field">
           <input type="password" required />
-          <span class="eye">👁️</span>
+          <i class="fa-solid fa-eye eye"></i>
         </div>
 
         <div class="options">
-          <label><input type="checkbox" /> Remember me</label>
+          <label><input type="checkbox"/> Remember me</label>
           <a href="#">Forgot password?</a>
         </div>
 
@@ -41,5 +55,9 @@
       </form>
     </div>
   </main>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+        integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
+
 </html>

@@ -1,40 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Contact Us</h1>
-        <p class="subtitle">Have questions about our products or services? We're here to help. Reach out to us using any of the methods below.</p>
-
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h2>Get in Touch</h2>
-                <p><i class="fas fa-map-marker-alt"></i><strong>Our Location</strong> <br>
-                     123 Tech Avenue<br>San Francisco, CA 94107</p>
-                <p><i class="fas fa-phone"></i> <strong>Phone</strong> <br>
-                    Sales: (123) 456-7890<br>Support: (123) 456-7891</p>
-                <p><i class="fas fa-envelope"></i> <strong>Email</strong> <br>
-                     info@electrohub.com<br>support@electrohub.com</p>
-
-            </div>
-
-            <div class="contact-form">
-                <h2>Send Us a Message</h2>
-                <form>
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <input type="text" placeholder="Subject" required>
-                    <textarea placeholder="How can we help you?" rows="5" required></textarea>
-                    <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
-                </form>
+    <div class="header">
+        <div class="container">
+            <div class="d-flex justify-between align-center">
+                <h1>Tech<span class="text-orange">Harbor</span></h1>
+                <ul class="d-flex justify-between nav gap">
+                    <li>Home</li>
+                    <li>Product</li>
+                    <li>Categories</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+                <div class="d-flex align-center gap">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-user"></i>
+                </div>
             </div>
         </div>
     </div>
+    <div class="contact-section">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p class="subtitle">Have questions about our products or services? We're here to help. Reach out to us using
+                any of the methods below.</p>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <table style="border-collapse: separate; border-spacing: 0 10px;">
+                        <tr>
+                            <td rowspan="3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </td>
+                            <td><strong>Our Location</strong></td>
+                        </tr>
+                        <tr>
+                            <td>123 Tech Avenue San</td>
+                        <tr>
+                            <td>Francisco, CA 94107</td>
+                        </tr>
+                        </tr>
+                        <tr>
+                            <td rowspan="3"><i class="fas fa-phone"></i></td>
+                            <td><strong>Phone</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Sales: (123) 456-7890</td>
+                        </tr>
+                        <tr>
+                            <td>Support: (123) 456-7891</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3"><i class="fas fa-envelope"></i></td>
+                            <td><strong>Email</strong></td>
+                        </tr>
+                        <tr>
+                            <td>info@electrohub.com</td>
+                        </tr>
+                        <tr>
+                            <td>support@electrohub.com</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Email Address" required>
+                        <input type="text" placeholder="Subject" required>
+                        <textarea placeholder="How can we help you?" rows="5" required></textarea>
+                        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="d-flex justify-between gap">
+                <div class="footer-col">
+                    <h3>TechHarbor</h3>
+                    <p>Your destination for premium computer hardware and tech components.</p>
+                    <div class="d-flex gap align-center social-icon-container">
+                        <div class="social-icon d-flex align-center justify-center">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <div class="social-icon d-flex align-center justify-center">
+                            <i class="fa-brands fa-twitter"></i>
+                        </div>
+                        <div class="social-icon d-flex align-center justify-center">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="social-icon d-flex align-center justify-center">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li>Processors</li>
+                        <li>Graphics Card</li>
+                        <li>Motherboards</li>
+                        <li>Memory</li>
+                        <li>Storage</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li>Contact Us</li>
+                        <li>FAQs</li>
+                        <li>Shipping Info</li>
+                        <li>Return Policy</li>
+                        <li>Warranty</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Email</li>
+                        <li>Phone</li>
+                        <li>Address</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </body>
+
 </html>
