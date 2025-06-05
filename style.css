@@ -448,7 +448,100 @@ body {
     color: #0284C7;
 }
 
+.btn{
+    border-radius:5px;
+    border:none;
+    padding:8px 15px;
+    color:white;
+    font-size:16px;
+}
 
+.btn-add{
+    background:#0284C7;
+}
 
+.btn-edit{
+    background: #34C759;
+    padding-block:4px;
+}
 
+.btn-delete{
+    background:rgb(255, 45, 45);
+    padding-block:4px;
+}
+
+.box{
+    padding:10px;
+    border-radius: 10px;
+    background: white;
+    margin:20px;
+}
+
+.box-table{
+    width:100%;
+    margin:20px 0;
+    cell-padding:0;
+}
+
+.box-table tr:first-child{
+    background: #F9FAFB;
+}
+
+.box-table th,.box-table td{
+    padding:15px 0;
+}
+
+.box-table tr{
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.box-table tr:hover{
+    background-color: #F9FAFB;
+}
+
+a{
+    text-decoration: none;
+}
+
+.form-container{
+    width:65%;
+    margin:auto;
+}
+
+.form-container h2{
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.form-label{
+    color:#374151;
+    font-weight:600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.form-input{
+    padding:6px;
+    border-radius: 5px;
+    border:2px solid rgb(220,230,240);
+    width:100%;
+    outline:none;
+}
+
+.form-group{
+    width:48%;
+    margin-bottom: 15px;
+}
+
+.flex-wrap{
+    flex-wrap:wrap;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.w-100{
+    width:100%;
+}
 
