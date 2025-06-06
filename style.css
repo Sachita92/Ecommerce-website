@@ -389,6 +389,10 @@ body {
     background: white;
 }
 
+.sidebar li a{
+    color:#4B5563;
+}
+
 .sidebar h2{
     border-bottom: 1px solid #ccc;
     padding:5px 0;
@@ -526,6 +530,7 @@ a{
     border:2px solid rgb(220,230,240);
     width:100%;
     outline:none;
+    background:#F9FAFB;
 }
 
 .form-group{
@@ -543,5 +548,15 @@ a{
 
 .w-100{
     width:100%;
+}
+
+.order-table{
+    width:38%;
+    margin-bottom: 15px;
+}
+
+.order-table th{
+    text-align: start;
+    padding:8px;
 }
 
