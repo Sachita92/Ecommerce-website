@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1d4ed8;
+}
+
+nav a {
+  margin-left: 30px;
+  color: #374151;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #1d4ed8;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  width: 400px;
+  text-align: center;
+}
+
+.form-container h1 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.form-container p {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: 600;
+}
+
+.input-box {
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.checkbox-container a {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+
+.btn {
+  background-color: #2563eb;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.btn:hover {
+  background-color: #1d4ed8;
+}
+
+.switch-link {
+  font-size: 14px;
+}
+
+.switch-link a {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+
+
