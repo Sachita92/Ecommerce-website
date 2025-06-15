@@ -10,6 +10,18 @@
 </head>
 
 <body>
+    <?php
+    include "../../database/connect.php";
+
+        $message="";
+        $sql= "SELECT b.*,count(p.id) as total_products FROM brands b LEFT JOIN products p ON b.id=p.brandid group by b.id";
+
+        $result=mysqli_query($conn,$sql);
+
+        if(!$result){
+            $message="Failed to fetch brand";
+        }
+    ?>
     <div class="layout d-flex">
         <div class="sidebar d-flex">
             <h2 class="text-center">Admin</h2>
@@ -37,8 +49,9 @@
             <div class="box">
                 <div class="d-flex justify-between align-center">
                     <h2>Brands</h2>
-                    <a class="btn btn-add" href="add-brand.html">+ Add Brand</a>
+                    <a class="btn btn-add" href="add-brand.php">+ Add Brand</a>
                 </div>
+                <?php echo $message;?>
                 <table class="box-table text-center">
                     <tr>
                         <th>Brand ID</th>
@@ -46,60 +59,29 @@
                         <th>Total Products</th>
                         <th>Action</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Mobile</td>
-                        <td>Samsung</td>
+                  
+                    <?php 
+                    if(mysqli_num_rows($result)>0){
+                        while($row=mysqli_fetch_assoc($result)){
+                            echo "  <tr>
+                        <td>".$row['id']."</td>
+                        <td>".$row['name']."</td>
+                        <td>".$row['total_products']."</td>
                         <td>
-                            <a href="" class="btn btn-edit">Edit</a>
-                            <a href="" class="btn btn-delete">Delete</a>
+                            <a href='edit-brand.php?id=".$row['id']."' class='btn btn-edit'>Edit</a>
+                            <a href='delete-brand.php?id=".$row['id']."' class='btn btn-delete'>Delete</a>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Mobile</td>
-                        <td>Samsung</td>
-                        <td>
-                            <a href="" class="btn btn-edit">Edit</a>
-                            <a href="" class="btn btn-delete">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Mobile</td>
-                        <td>Samsung</td>
-                        <td>
-                            <a href="" class="btn btn-edit">Edit</a>
-                            <a href="" class="btn btn-delete">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Mobile</td>
-                        <td>Samsung</td>
-                        <td>
-                            <a href="" class="btn btn-edit">Edit</a>
-                            <a href="" class="btn btn-delete">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Mobile</td>
-                        <td>Samsung</td>
-                        <td>
-                            <a href="" class="btn btn-edit">Edit</a>
-                            <a href="" class="btn btn-delete">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Mobile</td>
-                        <td>Samsung</td>
-                        <td>
-                            <a href="" class="btn btn-edit">Edit</a>
-                            <a href="" class="btn btn-delete">Delete</a>
-                        </td>
-                    </tr>
+                    </tr>";
+                        }
+
+                    }
+                    else{
+                        echo "<tr><td colspan='4'>No Brands Found</td></tr>";
+                    }
+                    
+                    
+                    
+                    ?>
                 </table>
             </div>
         </div>

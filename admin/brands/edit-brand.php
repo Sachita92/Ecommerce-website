@@ -10,6 +10,38 @@
 </head>
 
 <body>
+    <?php 
+    include "../../database/connect.php";
+    $message="";
+    $id=$_GET['id'];
+
+    $get_sql="SELECT * FROM brands where id=$id";
+
+    $get_result=mysqli_query($conn,$get_sql);
+
+    if(mysqli_num_rows($get_result)==0){
+        header("location:brand.php");
+    }
+
+    else{
+        $brand=mysqli_fetch_assoc($get_result);
+    }
+    if($_SERVER['REQUEST_METHOD']=="POST"){
+        $name = $_POST['name'];
+
+        $sql= "UPDATE brands SET name='$name' WHERE id=$id";
+
+        $result=mysqli_query($conn,$sql);
+
+        if($result){
+            header("location:brand.php");
+        }
+        else{
+            $message="Failed to add brand";
+        }
+    }
+    
+    ?>
     <div class="layout d-flex">
         <div class="sidebar d-flex">
             <h2 class="text-center">Admin</h2>
@@ -35,16 +67,17 @@
             </div>
 
             <div class="box">
-                <form class="form-container">
-                    <h2 class="text-center">Add Brand</h2>
+                <form class="form-container" action="" method="POST">
+                    <h2 class="text-center">Edit Brand</h2>
                     <div class="d-flex justify-between align-center flex-wrap">
                         <div class="form-group w-100">
                             <label class="form-label">Brand Name:</label>
-                            <input type="text" class="form-input">
+                            <input type="text" class="form-input" name="name" value="<?php echo $brand['name'];?>">
                         </div>
                     </div>
+                    <?php  echo $message; ?>
                     <div class="text-right">
-                    <button class="btn btn-add">Add Brand</button>
+                    <button class="btn btn-add">Update Brand</button>
                     </div>
                 </form>
             </div>

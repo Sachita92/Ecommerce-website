@@ -1,22 +1,24 @@
--- CREATE TABLE users(
---     id int auto_increment primary key,
---     name varchar(100),
---     address varchar(100),
---     phone varchar(10),
---     email varchar(100),
---     password varchar(100),
---     role tinyint
--- );
+CREATE TABLE users(
+    id int auto_increment primary key,
+    name varchar(100),
+    address varchar(100),
+    phone varchar(10),
+    email varchar(100),
+    password varchar(100),
+    role tinyint
+);
 
--- CREATE TABLE categories (
---     id int auto_increment primary key ,
---     name varchar(100)
--- ); 
+CREATE TABLE categories (
+    id int auto_increment primary key ,
+    name varchar(100)
+    -- description
+    -- image
+); 
 
--- CREATE TABLE brands (
---     id int auto_increment primary key,
---     name varchar(100)
--- );
+CREATE TABLE brands (
+    id int auto_increment primary key,
+    name varchar(100)
+);
 
 CREATE TABLE products(
     id int auto_increment primary key,
@@ -30,7 +32,7 @@ CREATE TABLE products(
     discount_rate int,
     foreign key (categoryid) references categories(id),  
     foreign key (brandid) references brands(id)
-
+    -- status
 );
 
 CREATE TABLE orders(
