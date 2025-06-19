@@ -7,6 +7,7 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -29,16 +30,46 @@
             </div>
         </div>
     </div>
-    <div class="hero-section d-flex align-center text-center justify-center relative">
-        <div class="overlay"></div>
-        <div class="hero-section-text relative">
-            <h1>Next-Gen Computer Hardware</h1>
-            <h5>Premium components for the ultimate PC build experience</h5>
-            <div class="d-flex align-center justify-center gap">
-                <button class="bg-blue">Shop GPUs</button>
-                <button class="bg-gray">Shop GPUs</button>
+    <div class="hero-section">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div style="background-image: url(images/banner.webp);"
+                        class="hero-section-slide d-flex align-center text-center justify-center relative">
+                        <div class="overlay"></div>
+                        <div class="hero-section-text relative">
+                            <h1>Next-Gen Computer Hardware</h1>
+                            <h5>Premium components for the ultimate PC build experience</h5>
+                            <button class="bg-blue">Shop GPUs</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div style="background-image: url(images/banner.webp);"
+                        class="hero-section-slide d-flex align-center text-center justify-center relative">
+                        <div class="overlay"></div>
+                        <div class="hero-section-text relative">
+                            <h1>Next-Gen Computer Hardware</h1>
+                            <h5>Premium components for the ultimate PC build experience</h5>
+                            <button class="bg-blue">Shop GPUs</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div style="background-image: url(images/banner.webp);"
+                        class="hero-section-slide d-flex align-center text-center justify-center relative">
+                        <div class="overlay"></div>
+                        <div class="hero-section-text relative">
+                            <h1>Next-Gen Computer Hardware</h1>
+                            <h5>Premium components for the ultimate PC build experience</h5>
+                            <button class="bg-blue">Shop GPUs</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="swiper-pagination"></div>
+    </div>
     </div>
 
     <div class="categories">
@@ -226,6 +257,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
         integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable:true,
+            },
+            autoplay:true,
+        });
+    </script>
 </body>
 
 </html>

@@ -78,12 +78,15 @@ body {
     box-shadow:rgba(0, 0, 0,0.35) 0px 1px 2px;
 }
 
-.hero-section{
-    background: url(images/banner.webp);
+.hero-section-slide{
     height:80vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal{
+    bottom:65px !important;
 }
 
 .text-center{
@@ -309,6 +312,13 @@ body {
 
 .single-product{
     margin:50px 0;
+}
+
+.box-bg{
+    background: white;
+    padding:20px;
+    border-radius: 7px;
+    margin-bottom:40px;
 }
 
 .single-product-image img{
@@ -578,4 +588,19 @@ a{
 
 .shop-content .product-card{
     width:29%;
+}
+
+.review-card{
+    border:1px solid #aaa;
+    padding:10px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.review-card h5{
+    margin: 7px 0;
+}
+
+.review-card-text{
+    width:75%;
 }

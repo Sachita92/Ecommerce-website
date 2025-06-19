@@ -4,23 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin-Brand</title>
+    <title>Admin Add-Category</title>
     <link rel="stylesheet" href="../../style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
-    <?php
+     <?php 
     include "../../database/connect.php";
+    $message="";
+    if($_SERVER['REQUEST_METHOD']=="POST"){
+        $name = $_POST['name'];
 
-        $message="";
-        $sql= "SELECT b.*,count(p.id) as total_products FROM brands b LEFT JOIN products p ON b.id=p.brandid group by b.id";
+        $sql= "SELECT * FROM categories";
 
         $result=mysqli_query($conn,$sql);
 
-        if(!$result){
-            $message="Failed to fetch brand";
+        if($result){
+            header("location:category.php");
         }
+        else{
+             $brand=mysqli_fetch_assoc($get_result);
+        }
+    }
+    if($_SERVER['REQUEST_METHOD']=="POST"){
+        $name = $_POST['name'];
+
+        $sql= "UPDATE categories SET name='$name' WHERE id=$id";
+
+        $result=mysqli_query($conn,$sql);
+
+        if($result){
+            header("location:category.php");
+        }
+        else{
+            $message="Failed to add category";
+        }
+    }
+    
     ?>
     <div class="layout d-flex">
         <div class="sidebar d-flex">
@@ -31,7 +52,7 @@
                 <li><a href="../orders/order.html"><i class="fa-solid fa-cart-shopping"></i>Order</a></li>
                 <li><a href="../customers/customer.html"><i class="fa-solid fa-users"></i>Customer</a></li>
                 <li><a href="../category/category.html"><i class="fa-solid fa-layer-group"></i>Categories</a></li>
-                <li><a href="#"><i class="fa-solid fa-star"></i>Brand</a></li>
+                <li><a href="../brands/brand.html"><i class="fa-solid fa-star"></i>Brand</a></li>
                 <li><a href=""><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
             </ul>
         </div>
@@ -47,39 +68,19 @@
             </div>
 
             <div class="box">
-                <div class="d-flex justify-between align-center">
-                    <h2>Brands</h2>
-                    <a class="btn btn-add" href="add-brand.php">+ Add Brand</a>
-                </div>
-                <?php echo $message;?>
-                <table class="box-table text-center">
-                    <tr>
-                        <th>Brand ID</th>
-                        <th>Brand Name</th>
-                        <th>Total Products</th>
-                        <th>Action</th>
-                    </tr>
-                  
-                    <?php 
-                    if(mysqli_num_rows($result)>0){
-                        while($row=mysqli_fetch_assoc($result)){
-                            echo "  <tr>
-                        <td>".$row['id']."</td>
-                        <td>".$row['name']."</td>
-                        <td>".$row['total_products']."</td>
-                        <td>
-                            <a href='edit-brand.php?id=".$row['id']."' class='btn btn-edit'>Edit</a>
-                            <a href='delete-brand.php?id=".$row['id']."' class='btn btn-delete'>Delete</a>
-                        </td>
-                    </tr>";
-                        }
-
-                    }
-                    else{
-                        echo "<tr><td colspan='4'>No Brands Found</td></tr>";
-                    }
-                    ?>
-                </table>
+                <form class="form-container" action="" method="POST">
+                    <h2 class="text-center">Edit Category</h2>
+                    <div class="d-flex justify-between align-center flex-wrap">
+                        <div class="form-group w-100">
+                            <label class="form-label">Category Name:</label>
+                            <input type="text" class="form-input" name="name">
+                        </div>
+                    </div>
+                      <?php  echo $message; ?>
+                    <div class="text-right">
+                    <button class="btn btn-add">Edit Category</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

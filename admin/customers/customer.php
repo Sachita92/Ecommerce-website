@@ -10,11 +10,23 @@
 </head>
 
 <body>
+    <?php
+    include "../../database/connect.php";
+
+    $message = "";
+    $sql = "SELECT c.*,count(o.id) as total_orders FROM users c LEFT JOIN orders p ON c.id=o.userid group by c.id";
+
+    $result = mysqli_query($conn, $sql);
+
+    if (!$result) {
+        $message = "Failed to fetch customer";
+    }
+    ?>
     <div class="layout d-flex">
         <div class="sidebar d-flex">
             <h2 class="text-center">Admin</h2>
             <ul class="d-flex">
-               <li><a href="../dashboard.html"><i class="fa-solid fa-gauge"></i>Dashboard</a></li>
+                <li><a href="../dashboard.html"><i class="fa-solid fa-gauge"></i>Dashboard</a></li>
                 <li><a href="../products/product.html"><i class="fa-solid fa-box"></i>Product</a></li>
                 <li><a href="../orders/order.html"><i class="fa-solid fa-cart-shopping"></i>Order</a></li>
                 <li><a href="#"><i class="fa-solid fa-users"></i>Customer</a></li>
@@ -37,7 +49,7 @@
             <div class="box">
                 <div class="d-flex justify-between align-center">
                     <h2>Customers</h2>
-                    <a class="btn btn-add" href="add-customer.html">+ Add Customer</a>
+                    <a class="btn btn-add" href="add-customer.php">+ Add Customer</a>
                 </div>
                 <table class="box-table text-center">
                     <tr>
@@ -61,66 +73,27 @@
                             <a href="" class="btn btn-delete">Delete</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Alex</td>
-                        <td>Kathmandu</td>
-                        <td>1234567890</td>
-                        <td>alex@gmail.com</td>
-                        <td>10pcs</td>
+                    <?php
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "  <tr>
+                        <td>" . $row['id'] . "</td>
+                        <td>" . $row['name'] . "</td>
+                        <td>" . $row['address'] . "</td>
+                        <td>" . $row['phone'] . "</td>
+                        <td>" . $row['email'] . "</td>
+                        <td>" . $row['total_orders'] . " pcs</td>
                         <td>
-                            <a href="" class="btn btn-edit">Edit</a>
-                            <a href="" class="btn btn-delete">Delete</a>
+                            <a href='edit-customer.php?id=" . $row['id'] . "' class='btn btn-edit'>Edit</a>
+                            <a href='delete-customer.php?id=" . $row['id'] . "' class='btn btn-delete'>Delete</a>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Alex</td>
-                        <td>Kathmandu</td>
-                        <td>1234567890</td>
-                        <td>alex@gmail.com</td>
-                        <td>10pcs</td>
-                        <td>
-                            <a href="" class="btn btn-edit">Edit</a>
-                            <a href="" class="btn btn-delete">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Alex</td>
-                        <td>Kathmandu</td>
-                        <td>1234567890</td>
-                        <td>alex@gmail.com</td>
-                        <td>10pcs</td>
-                        <td>
-                            <a href="" class="btn btn-edit">Edit</a>
-                            <a href="" class="btn btn-delete">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Alex</td>
-                        <td>Kathmandu</td>
-                        <td>1234567890</td>
-                        <td>alex@gmail.com</td>
-                        <td>10pcs</td>
-                        <td>
-                            <a href="" class="btn btn-edit">Edit</a>
-                            <a href="" class="btn btn-delete">Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Alex</td>
-                        <td>Kathmandu</td>
-                        <td>1234567890</td>
-                        <td>alex@gmail.com</td>
-                        <td>10pcs</td>
-                        <td>
-                            <a href="" class="btn btn-edit">Edit</a>
-                            <a href="" class="btn btn-delete">Delete</a>
-                        </td>
-                    </tr>
+                    </tr>";
+                        }
+
+                    } else {
+                        echo "<tr><td colspan='7'>No Customer Found</td></tr>";
+                    }
+                    ?>
                 </table>
             </div>
         </div>
