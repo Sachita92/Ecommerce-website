@@ -2,8 +2,16 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: #f5f8fb;
   margin: 0;
-  padding: 20px;
   color: #333;
+}
+
+.profile{
+  margin-top:30px;
+}
+
+.profile-container{
+  width:50%;
+  margin:auto;
 }
 
 .tabs {
@@ -139,13 +147,6 @@ input[type="password"] {
   margin-left: 180px;
 }
 
-.personal-container {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
 .personal-info {
   flex: 2;
 } 
@@ -155,19 +156,6 @@ input[type="password"] {
   max-width: 500px;
 }
 
-.security-container {
-  display: flex;
-  gap: 20px;
-  align-items: stretch;
-  flex-wrap: nowrap;
-}
-
-.security-container .card {
-  flex: 0 0 50%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-}
 .status-badge {
   display: inline-block;
   padding: 4px 8px;
