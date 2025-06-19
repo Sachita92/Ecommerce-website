@@ -1,0 +1,213 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f8fb;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  border: none;
+  background: #e4eaf1;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.tab-button.active {
+  background: #007bff;
+  color: #fff;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 50px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.bio {
+  grid-column: span 2;
+}
+
+input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.primary-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.secondary-btn {
+  background: #e4eaf1;
+  color: #333;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.stats div {
+  margin-bottom: 15px;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.status.active {
+  background: #d4edda;
+  color: #155724;
+  margin-left: 400px;
+  font-weight: bold;
+}
+
+.status.enabled {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.disabled {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.role {
+  background: #cce5ff;
+  color: #004085;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.role.admin {
+  margin-left: 400px;
+  color: blue;
+  font-weight: bold;
+}
+
+.time-info {
+  margin-left: 410px;
+  font-weight: bold;
+}
+
+.login-time {
+  margin-left: 180px;
+}
+
+.personal-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.personal-info {
+  flex: 2;
+} 
+
+.stats {
+  flex: 1;
+  max-width: 500px;
+}
+
+.security-container {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+
+.security-container .card {
+  flex: 0 0 50%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge.enabled {
+  background: #d4edda;
+  color: #155724;
+  margin-left: 400px;
+}
+
+.status-badge.disabled {
+  background: #a19d9d;
+  color: #130103;
+  margin-left: 400px;
+}
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+  font-weight: 500;
+}
+
+input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.tab-button i {
+  margin-right: 8px;
+}
+
+

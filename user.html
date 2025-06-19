@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings Page</title>
+  <link rel="stylesheet" href="user.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="tabs">
+  <button class="tab-button active" data-tab="personal">
+    <i class="fas fa-user"></i> Personal Info
+  </button>
+  <button class="tab-button" data-tab="security">
+    <i class="fas fa-lock"></i> Security
+  </button>
+  <button class="tab-button" data-tab="preferences">
+    <i class="fas fa-cog"></i> Preferences
+  </button>
+  <button class="tab-button" data-tab="activity">
+    <i class="fas fa-chart-line"></i> Activity
+  </button>
+</div>
+
+<div id="personal" class="tab-content active">
+  <div class="personal-container">
+    <div class="card personal-info">
+      <h2>Personal Information</h2>
+      <div class="info-grid">
+        <div><strong>Full Name</strong><p>John Anderson</p></div>
+        <div><strong>Email</strong><p>john.anderson@electrostore.com</p></div>
+        <div><strong>Phone</strong><p>+1 (555) 123-4567</p></div>
+        <div><strong>Department</strong><p>Operations</p></div>
+        <div class="bio"><strong>Bio</strong>
+          <p>Experienced administrator with 8+ years in e-commerce operations. Passionate about streamlining processes and improving customer experience.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card stats">
+      <h2>Quick Stats</h2>
+      <div><strong>Last Login:</strong>
+        <span class="login-time">Nov 16, 2023, 03:15 PM</span>
+      </div>
+      <div><strong>Account Status:</strong>
+        <span class="status active">Active</span>
+      </div>
+      <div><strong>Role:</strong>
+        <span class="role admin">Admin</span>
+      </div>
+      <div><strong>Timezone:</strong>
+        <span class="time-info">PST</span>
+      </div>
+    </div>
+  </div> 
+</div>
+
+<div id="security" class="tab-content">
+  <div class="security-container">
+    <div class="card">
+      <h2>Password & Authentication</h2>
+
+      <div class="form-group">
+        <label for="current-password">Current Password</label>
+        <input type="password" id="current-password" placeholder="Enter current password">
+      </div>
+
+      <div class="form-group">
+        <label for="new-password">New Password</label>
+        <input type="password" id="new-password" placeholder="Enter new password">
+      </div>
+
+      <div class="form-group">
+        <label for="confirm-password">Confirm New Password</label>
+        <input type="password" id="confirm-password" placeholder="Confirm new password">
+      </div>
+      <button class="primary-btn full-width-btn">Update Password</button>
+    </div>
+
+    <div class="card">
+      <h2>Two-Factor Authentication</h2>
+      <div class="two-fa">
+        <div>
+          <strong>SMS Authentication</strong>
+          <span class="status-badge enabled">Enabled</span>
+          <p>Receive codes via SMS</p>
+        </div>
+        <div>
+          <strong>App Authentication</strong>
+          <span class="status-badge disabled">Disabled</span> 
+          <p>Use authenticator app</p>
+        </div>
+        <button class="secondary-btn">Configure 2FA</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="preferences" class="tab-content">
+  <div class="card">
+    <h2>Preferences Settings</h2>
+    <p>Preferences content here.</p>
+  </div>
+</div>
+
+<div id="activity" class="tab-content">
+  <div class="card">
+    <h2>Recent Activity Logs</h2>
+    <p>Activity log content here.</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
