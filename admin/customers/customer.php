@@ -14,7 +14,7 @@
     include "../../database/connect.php";
 
     $message = "";
-    $sql = "SELECT c.*,count(o.id) as total_orders FROM users c LEFT JOIN orders p ON c.id=o.userid group by c.id";
+    $sql = "SELECT c.*,count(o.id) as total_orders FROM users c LEFT JOIN orders o ON c.id=o.userid group by c.id";
 
     $result = mysqli_query($conn, $sql);
 
@@ -60,18 +60,6 @@
                         <th>Email</th>
                         <th>Total Order</th>
                         <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Alex</td>
-                        <td>Kathmandu</td>
-                        <td>1234567890</td>
-                        <td>alex@gmail.com</td>
-                        <td>10pcs</td>
-                        <td>
-                            <a href="" class="btn btn-edit">Edit</a>
-                            <a href="" class="btn btn-delete">Delete</a>
-                        </td>
                     </tr>
                     <?php
                     if (mysqli_num_rows($result) > 0) {

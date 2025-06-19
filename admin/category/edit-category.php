@@ -10,38 +10,35 @@
 </head>
 
 <body>
-     <?php 
+    <?php
     include "../../database/connect.php";
-    $message="";
-    if($_SERVER['REQUEST_METHOD']=="POST"){
+    $message = "";
+    $id = $_GET['id'];
+    $get_sql = "SELECT * FROM categories where id=$id";
+
+    $get_result = mysqli_query($conn, $get_sql);
+
+    if (mysqli_num_rows($get_result) == 0) {
+        header("location:category.php");
+    } else {
+        $category= mysqli_fetch_assoc($get_result);
+    }
+
+
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $name = $_POST['name'];
 
-        $sql= "SELECT * FROM categories";
+        $sql = "UPDATE categories SET name='$name' WHERE id=$id";
 
-        $result=mysqli_query($conn,$sql);
+        $result = mysqli_query($conn, $sql);
 
-        if($result){
+        if ($result) {
             header("location:category.php");
-        }
-        else{
-             $brand=mysqli_fetch_assoc($get_result);
+        } else {
+            $message = "Failed to add category";
         }
     }
-    if($_SERVER['REQUEST_METHOD']=="POST"){
-        $name = $_POST['name'];
 
-        $sql= "UPDATE categories SET name='$name' WHERE id=$id";
-
-        $result=mysqli_query($conn,$sql);
-
-        if($result){
-            header("location:category.php");
-        }
-        else{
-            $message="Failed to add category";
-        }
-    }
-    
     ?>
     <div class="layout d-flex">
         <div class="sidebar d-flex">
@@ -73,12 +70,12 @@
                     <div class="d-flex justify-between align-center flex-wrap">
                         <div class="form-group w-100">
                             <label class="form-label">Category Name:</label>
-                            <input type="text" class="form-input" name="name">
+                            <input type="text" class="form-input" name="name" value="<?php echo $category['name'] ?>">
                         </div>
                     </div>
-                      <?php  echo $message; ?>
+                    <?php echo $message; ?>
                     <div class="text-right">
-                    <button class="btn btn-add">Edit Category</button>
+                        <button class="btn btn-add">Edit Category</button>
                     </div>
                 </form>
             </div>

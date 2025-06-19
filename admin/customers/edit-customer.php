@@ -10,8 +10,21 @@
 </head>
 
 <body>
+
     <?php
     include "../../database/connect.php";
+    $message = "";
+    $id = $_GET['id'];
+    $get_sql = "SELECT * FROM users where id=$id";
+
+    $get_result = mysqli_query($conn, $get_sql);
+
+    if (mysqli_num_rows($get_result) == 0) {
+        header("location:customer.php");
+    } else {
+        $customer = mysqli_fetch_assoc($get_result);
+    }
+
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $name = $_POST['name'];
@@ -22,10 +35,7 @@
         $con_password = $_POST['con_password'];
         $role = (int) $_POST['role'];
 
-
-        $sql = "INSERT INTO users(name,address,phone,email,password,role)
-         VALUES('$name', '$address' , '$phone' , '$email' , '$password' , $role)";
-
+        $sql = "UPDATE users SET name='$name', address='$address', phone='$phone', email='$email' , password='$password' , role='$role' WHERE id=$id";
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
@@ -62,27 +72,29 @@
 
             <div class="box">
                 <form class="form-container" action="" method="POST">
-                    <h2 class="text-center">Add Customer</h2>
+                    <h2 class="text-center">Edit Customer</h2>
                     <div class="d-flex justify-between align-center flex-wrap">
                         <div class="form-group">
                             <label class="form-label">Customer Name:</label>
-                            <input type="text" class="form-input" name="name">
+                            <input type="text" class="form-input" name="name" value="<?php echo $customer['name'] ?>">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Address:</label>
-                            <input type="text" class="form-input" name="address">
+                            <input type="text" class="form-input" name="address"
+                                value="<?php echo $customer['address'] ?>">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Phone:</label>
-                            <input type="text" class="form-input" name="phone">
+                            <input type="text" class="form-input" name="phone" value="<?php echo $customer['phone'] ?>">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Email:</label>
-                            <input type="text" class="form-input" name="email">
+                            <input type="text" class="form-input" name="email" value="<?php echo $customer['email'] ?>">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Password:</label>
-                            <input type="password" class="form-input" name="password">
+                            <input type="password" class="form-input" name="password"
+                                value="<?php echo $customer['password'] ?>">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Confirm Password:</label>
@@ -91,14 +103,14 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Role:</label>
-                        <select class="form-input" name="role">
+                        <select class="form-input" name="role " value="<?php echo $customer['role'] ?>">
                             <option value="0">User</option>
                             <option value="1">Admin</option>
                         </select>
                     </div>
             </div>
             <div class="text-right">
-                <button class="btn btn-add">Add Customer</button>
+                <button class="btn btn-add">Update Customer</button>
             </div>
             </form>
         </div>
