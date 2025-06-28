@@ -29,29 +29,10 @@
     }
     ?>
     <div class="layout d-flex">
-        <div class="sidebar d-flex">
-            <h2 class="text-center">Admin</h2>
-            <ul class="d-flex">
-                <li><a href="../dashboard.html"><i class="fa-solid fa-gauge"></i>Dashboard</a></li>
-                <li><a href="../products/product.html"><i class="fa-solid fa-box"></i>Product</a></li>
-                <li><a href="../orders/order.html"><i class="fa-solid fa-cart-shopping"></i>Order</a></li>
-                <li><a href="../customers/customer.html"><i class="fa-solid fa-users"></i>Customer</a></li>
-                <li><a href="../category/category.html"><i class="fa-solid fa-layer-group"></i>Categories</a></li>
-                <li><a href="../brands/brand.html"><i class="fa-solid fa-star"></i>Brand</a></li>
-                <li><a href=""><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
-            </ul>
-        </div>
+       
+        <?php include "../layout/sidebar.php"; ?>
         <div class="layout-content">
-            <div class="admin-header">
-                <div class="d-flex justify-end align-center gap">
-                    <!-- <h2>Dashboard</h2> -->
-                    <div class="d-flex gap admin-header-icon align-center">
-                        <i class="fa-solid fa-bell fa-xl"></i>
-                        <i class="fa-solid fa-user fa-xl"></i>
-                    </div>
-                </div>
-            </div>
-
+            <?php include "../layout/header.php";?>
             <div class="box">
                 <form class="form-container" action="" method="POST">
                     <h2 class="text-center">Add Category</h2>

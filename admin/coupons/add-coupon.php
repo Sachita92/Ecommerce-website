@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +8,36 @@
     <link rel="stylesheet" href="../../style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
+    <?php
+    include "../../database/connect.php";
+
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        $code = $_POST['code'];
+        $discount_type = $_POST['discount_type'];
+        $discount_value = $_POST['discount_value'];
+        $min_amount = $_POST['min_amount'];
+        $max_use_per_user = $_POST['max_use_per_user'];
+        $is_active = $_POST['is_active'];
+
+        $sql = "INSERT INTO coupons(code,discount_type,discount_value,min_amount,max_use_per_user,is_active)
+         VALUES('$code', '$discount_type' , '$discount_value' , '$min_amount' , '$max_use_per_user' , $is_active)";
+
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+            header("location:coupon.php");
+        } else {
+            $message = "Failed to add coupon";
+        }
+    }
+
+    ?>
     <div class="layout d-flex">
-        <div class="sidebar d-flex">
-            <h2 class="text-center">Admin</h2>
-            <ul class="d-flex">
-                <li><a href="../dashboard.html"><i class="fa-solid fa-gauge"></i>Dashboard</a></li>
-                <li><a href="../products/product.html"><i class="fa-solid fa-box"></i>Product</a></li>
-                <li><a href="../orders/order.html"><i class="fa-solid fa-cart-shopping"></i>Order</a></li>
-                <li><a href="../customers/customer.html"><i class="fa-solid fa-users"></i>Customer</a></li>
-                <li><a href="../category/category.html"><i class="fa-solid fa-layer-group"></i>Categories</a></li>
-                <li><a href="../brands/brand.html"><i class="fa-solid fa-star"></i>Brand</a></li>
-                <li><a href=""><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
-            </ul>
-        </div>
+        <?php include "../layout/sidebar.php"; ?>
         <div class="layout-content">
-            <div class="admin-header">
-                <div class="d-flex justify-end align-center gap">
-                    <!-- <h2>Dashboard</h2> -->
-                    <div class="d-flex gap admin-header-icon align-center">
-                        <i class="fa-solid fa-bell fa-xl"></i>
-                        <i class="fa-solid fa-user fa-xl"></i>
-                    </div>
-                </div>
-            </div>
+            <?php include "../layout/header.php"; ?>
 
             <div class="box">
                 <form class="form-container" action="" method="POST">
@@ -42,29 +49,33 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">Discount Type</label>
-                            <select class="form-input">
-                                <option>Percentage</option>
-                                <option>Fixed</option>
+                            <select class="form-input" name="discount_type">
+                                <option value="percentage">Percentage</option>
+                                <option value="fixed">Fixed</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Discount Value:</label>
-                            <input type="text" class="form-input" name="code">
+                            <input type="text" class="form-input" name="discount_value">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Minimun Amount:</label>
-                            <input type="text" class="form-input" name="code">
+                            <label class="form-label">Minimum Amount:</label>
+                            <input type="text" class="form-input" name="min_amount">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Maximum Use Per User:</label>
+                            <input type="text" class="form-input" name="max_use_per_user">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Is Active:</label>
-                            <select class="form-input">
-                                <option>Active</option>
-                                <option>Inactive</option>
+                            <select class="form-input" name="is_active">
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
                             </select>
                         </div>
                     </div>
                     <div class="text-right">
-                    <button class="btn btn-add">Add Coupon</button>
+                        <button class="btn btn-add">Add Coupon</button>
                     </div>
                 </form>
             </div>
@@ -75,4 +86,5 @@
         integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
+
 </html>
