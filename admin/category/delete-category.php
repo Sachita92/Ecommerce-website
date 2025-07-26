@@ -12,6 +12,9 @@
     else{
         $delete_sql="DELETE FROM categories WHERE id=$id";
 
+    $category=mysqli_fetch_assoc($get_result);
+    unlink("../../uploads/" . $category['image']);
+
         $delete_result=mysqli_query($conn,$delete_sql);
         header("location:category.php");
     }

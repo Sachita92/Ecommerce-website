@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
@@ -30,143 +30,114 @@
             </div>
         </div>
     </div>
+
+    <?php
+    include "database/connect.php";
+
+    $banner_sql = "SELECT * FROM banners where is_active='1'";
+
+    $banner_result = mysqli_query($conn, $banner_sql);
+
+    ?>
     <div class="hero-section">
         <div class="swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div style="background-image: url(images/banner.webp);"
-                        class="hero-section-slide d-flex align-center text-center justify-center relative">
-                        <div class="overlay"></div>
-                        <div class="hero-section-text relative">
-                            <h1>Next-Gen Computer Hardware</h1>
-                            <h5>Premium components for the ultimate PC build experience</h5>
-                            <button class="bg-blue">Shop GPUs</button>
+                <?php
+                while ($row = mysqli_fetch_assoc($banner_result)) {
+                    echo "     <div class='swiper-slide'>
+                    <div style='background-image: url(\"uploads/" . $row['image'] . "\");'
+                        class='hero-section-slide d-flex align-center text-center justify-center relative'>
+                        <div class='overlay'></div>
+                        <div class='hero-section-text relative'>
+                            <h1>" . $row['title'] . "</h1>
+                            <h5>" . $row['sub_title'] . "</h5>
+                            <button class='bg-blue'>" . $row['button_text'] . "</button>
                         </div>
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <div style="background-image: url(images/banner.webp);"
-                        class="hero-section-slide d-flex align-center text-center justify-center relative">
-                        <div class="overlay"></div>
-                        <div class="hero-section-text relative">
-                            <h1>Next-Gen Computer Hardware</h1>
-                            <h5>Premium components for the ultimate PC build experience</h5>
-                            <button class="bg-blue">Shop GPUs</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div style="background-image: url(images/banner.webp);"
-                        class="hero-section-slide d-flex align-center text-center justify-center relative">
-                        <div class="overlay"></div>
-                        <div class="hero-section-text relative">
-                            <h1>Next-Gen Computer Hardware</h1>
-                            <h5>Premium components for the ultimate PC build experience</h5>
-                            <button class="bg-blue">Shop GPUs</button>
-                        </div>
-                    </div>
-                </div>
+                </div>";
+                }
+                ?>
+
             </div>
         </div>
         <div class="swiper-pagination"></div>
     </div>
     </div>
 
+    <?php
+
+    $category_sql = "SELECT * FROM categories";
+
+    $category_result = mysqli_query($conn, $category_sql);
+
+    ?>
     <div class="categories">
         <div class="container">
             <h1 class="text-center">Shop by Category</h1>
-            <div class="d-flex justify-between align-center gap">
-                <div class="categories-card text-center">
-                    <img src="images/mobile.png" />
-                    <h5>Smartphones</h5>
-                </div>
-                <div class="categories-card text-center">
-                    <img src="images/laptop.png" />
-                    <h5>Laptop</h5>
-                </div>
-                <div class="categories-card text-center">
-                    <img src="images/laptop.png" />
-                    <h5>Smartphones</h5>
-                </div>
-                <div class="categories-card text-center">
-                    <img src="images/mobile.png" />
-                    <h5>Smartphones</h5>
-                </div>
-                <div class="categories-card text-center">
-                    <img src="images/mobile.png" />
-                    <h5>Smartphones</h5>
-                </div>
-                <div class="categories-card text-center">
-                    <img src="images/mobile.png" />
-                    <h5>Smartphones</h5>
-                </div>
+            <div class="d-flex align-center gap">
+
+                <?php
+                while ($row = mysqli_fetch_assoc($category_result)) {
+                    $img = $row['image'];
+                    echo "
+                <div class='categories-card text-center'>
+                    <img src=\"uploads/" . $img . "\" />
+                    <h5>" . $row['name'] . "</h5>
+                </div>";
+                }
+                ?>
             </div>
         </div>
     </div>
+
+    <?php
+
+    $product_sql = "SELECT p.*,c.name as category FROM products p LEFT JOIN categories c on p.categoryid=c.id";
+
+    $product_result = mysqli_query($conn, $product_sql);
+
+    ?>
+
     <div class="products">
         <div class="container">
             <h1 class="text-center">Our Products</h1>
-            <div class="d-flex justify-between align-center gap">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/banner.webp" />
-                        <span class="product-tag bg-orange">-13%</span>
-                    </div>
-                    <div class="product-detail">
-                        <h6>PROCESSORS</h6>
-                        <h4>AMD Ryzen 9 5950X</h4>
-                        <h5>$699.99 <del class="text-gray">$799.99</del></h5>
-                        <div class="d-flex align-center gap">
-                            <button class="bg-blue text-white cart-btn">Add to Cart</button>
-                            <i class="fa-regular fa-heart"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/banner.webp" />
-                        <span class="product-tag bg-green">New</span>
-                    </div>
-                    <div class="product-detail">
-                        <h6>PROCESSORS</h6>
-                        <h4>AMD Ryzen 9 5950X</h4>
-                        <h5>$699.99 <del class="text-gray">$799.99</del></h5>
-                        <div class="d-flex align-center gap">
-                            <button class="bg-blue text-white cart-btn">Add to Cart</button>
-                            <i class="fa-regular fa-heart"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/banner.webp" />
-                        <span class="product-tag bg-green">New</span>
-                    </div>
-                    <div class="product-detail">
-                        <h6>PROCESSORS</h6>
-                        <h4>AMD Ryzen 9 5950X</h4>
-                        <h5>$699.99 <del class="text-gray">$799.99</del></h5>
-                        <div class="d-flex align-center gap">
-                            <button class="bg-blue text-white cart-btn">Add to Cart</button>
-                            <i class="fa-regular fa-heart"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/banner.webp" />
-                        <span class="product-tag bg-green">New</span>
-                    </div>
-                    <div class="product-detail">
-                        <h6>PROCESSORS</h6>
-                        <h4>AMD Ryzen 9 5950X</h4>
-                        <h5>$699.99 <del class="text-gray">$799.99</del></h5>
-                        <div class="d-flex align-center gap">
-                            <button class="bg-blue text-white cart-btn">Add to Cart</button>
-                            <i class="fa-regular fa-heart"></i>
-                        </div>
-                    </div>
-                </div>
+            <div class="d-flex align-center gap">
+                <?php
+                while ($row = mysqli_fetch_assoc($product_result)) {
+                    $price = $row['price'];
+                    $discount_rate = isset($row['discount_rate']) ? $row['discount_rate'] : null;
+                    $discount_amount = 0;
+
+                    if ($discount_rate) {
+                        $discount_amount = $price - ($discount_rate / 100 * $price);
+                    }
+                     $img = $row['image'];
+                    echo "
+    <a class='product-card' href='product.php?id=".$row['id']."'>
+        <div class='product-image'>
+              <img src=\"uploads/" . $img . "\" />
+            " . ($discount_rate ? "<span class='product-tag bg-orange text-white' >-{$discount_rate}%</span>" : "") . "
+        </div>
+        <div class='product-detail'>
+            <h6>{$row['category']}</h6>
+            <h4>{$row['name']}</h4>
+            <h5>";
+
+                    if ($discount_rate) {
+                        echo number_format($discount_amount, 2) . " <del class='text-gray'>" . number_format($price, 2) . "</del>";
+                    } else {
+                        echo number_format($price, 2);
+                    }
+
+                    echo "</h5>
+            <div class='d-flex align-center gap'>
+                <button class='bg-blue text-white cart-btn'>Add to Cart</button>
+                <i class='fa-regular fa-heart'></i>
+            </div>
+        </div>
+    </a>";
+                }
+                ?>
             </div>
             <div class="text-center">
                 <button class="primary-btn">View all Products</button>
@@ -263,9 +234,9 @@
             loop: true,
             pagination: {
                 el: '.swiper-pagination',
-                clickable:true,
+                clickable: true,
             },
-            autoplay:true,
+            autoplay: true,
         });
     </script>
 </body>

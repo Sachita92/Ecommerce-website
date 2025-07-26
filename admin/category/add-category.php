@@ -15,16 +15,20 @@
     $message="";
     if($_SERVER['REQUEST_METHOD']=="POST"){
         $name = $_POST['name'];
+        
+        $upload_dir = "../../uploads/";
+        $file_name = pathinfo($_FILES['image']['name'], PATHINFO_FILENAME) . date("YmdHis") . "." . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        // Check if file is uploaded successfully
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $upload_dir . $file_name)) {
 
-        $sql= "INSERT INTO categories(name) VALUES('$name')";
+            $sql= "INSERT INTO categories(name,image) VALUES('$name', '$file_name')";
+            $result = mysqli_query($conn, $sql);
 
-        $result=mysqli_query($conn,$sql);
-
-        if($result){
-            header("location:category.php");
-        }
-        else{
-            $message="Failed to add category";
+            if ($result) {
+                header("location:category.php");
+            } else {
+                $message = "Failed to add category";
+            }
         }
     }
     ?>
@@ -34,12 +38,16 @@
         <div class="layout-content">
             <?php include "../layout/header.php";?>
             <div class="box">
-                <form class="form-container" action="" method="POST">
+                <form class="form-container" action="" method="POST" enctype="multipart/form-data">
                     <h2 class="text-center">Add Category</h2>
                     <div class="d-flex justify-between align-center flex-wrap">
-                        <div class="form-group w-100">
+                        <div class="form-group">
                             <label class="form-label">Category Name:</label>
                             <input type="text" class="form-input" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Category Image:</label>
+                            <input type="file" class="form-input" name="image">
                         </div>
                     </div>
                       <?php  echo $message; ?>

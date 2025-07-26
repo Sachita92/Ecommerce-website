@@ -71,7 +71,6 @@
 
     ?>
     <div class="layout d-flex">
-
         <?php include "../layout/sidebar.php"; ?>
         <div class="layout-content">
             <?php include "../layout/header.php"; ?>

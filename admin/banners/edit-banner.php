@@ -89,9 +89,9 @@
 
                         <div class="form-group">
                             <label class="form-label">Is Active:</label>
-                            <select class="form-input" name="is_active" value="<?php echo $banner['is_active'] ?>">
+                            <select class="form-input" name="is_active" value="">
                                 <option value="0">No</option>
-                                <option value="1">Yes</option>
+                                <option value="1" <?php echo $banner['is_active'] == 1? 'selected':""?>>Yes</option>
                             </select>
                         </div>
 
